@@ -228,6 +228,7 @@ export default function App() {
             strokeStyle: "solid",
             roughness: 1,
             opacity: 100,
+            tags: "",
             angle: 0,
             x: 100.50390625,
             y: 93.67578125,
@@ -248,6 +249,7 @@ export default function App() {
       ),
       appState: {
         viewBackgroundColor: "#edf2ff",
+        tagsBackground: "",
       },
     };
     excalidrawAPI?.updateScene(sceneData);

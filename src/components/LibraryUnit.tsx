@@ -41,6 +41,7 @@ export const LibraryUnit = ({
         {
           exportBackground: false,
           viewBackgroundColor: oc.white,
+          tagsBackground: "",
         },
         null,
       );

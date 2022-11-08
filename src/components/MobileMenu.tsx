@@ -15,6 +15,7 @@ import CollabButton from "./CollabButton";
 import { SCROLLBAR_WIDTH, SCROLLBAR_MARGIN } from "../scene/scrollbars";
 import { LockButton } from "./LockButton";
 import { UserList } from "./UserList";
+import { FilterTagsBackground } from "./FilterTagsBackground";
 import { LibraryButton } from "./LibraryButton";
 import { PenModeButton } from "./PenModeButton";
 import { Stats } from "./Stats";
@@ -23,6 +24,7 @@ import { MenuLinks, Separator } from "./MenuUtils";
 import WelcomeScreen from "./WelcomeScreen";
 import MenuItem from "./MenuItem";
 import { ExportImageIcon } from "./icons";
+import "./TagsCanvas.scss";
 
 type MobileMenuProps = {
   appState: AppState;
@@ -221,6 +223,7 @@ export const MobileMenu = ({
           </div>
         )}
         {actionManager.renderAction("toggleTheme")}
+        {<FilterTagsBackground actionManager={actionManager} />}
       </>
     );
   };

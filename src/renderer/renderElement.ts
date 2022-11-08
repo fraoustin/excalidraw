@@ -1020,7 +1020,6 @@ export const renderElementToSvg = (
             offsetY || 0
           }) rotate(${degree} ${cx} ${cy})`,
         );
-
         root.appendChild(g);
       }
       break;

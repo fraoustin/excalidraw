@@ -11,6 +11,7 @@ import { ExportType } from "../scene/types";
 import { AppProps, AppState, ExcalidrawProps, BinaryFiles } from "../types";
 import { muteFSAbortError } from "../utils";
 import { SelectedShapeActions, ShapesSwitcher } from "./Actions";
+import { FilterTagsBackground } from "./FilterTagsBackground";
 import CollabButton from "./CollabButton";
 import { ErrorDialog } from "./ErrorDialog";
 import { ExportCB, ImageExportDialog } from "./ImageExportDialog";
@@ -55,6 +56,7 @@ import { LanguageList } from "../excalidraw-app/components/LanguageList";
 import WelcomeScreenDecor from "./WelcomeScreenDecor";
 import { getShortcutFromShortcutName } from "../actions/shortcuts";
 import MenuItem from "./MenuItem";
+import "./TagsCanvas.scss";
 
 interface LayerUIProps {
   actionManager: ActionManager;
@@ -144,6 +146,7 @@ const LayerUI = ({
             exportBackground: appState.exportBackground,
             name: appState.name,
             viewBackgroundColor: appState.viewBackgroundColor,
+            tagsBackground: appState.tagsBackground,
           },
         )
           .catch(muteFSAbortError)
@@ -265,6 +268,7 @@ const LayerUI = ({
                   </div>
                 )}
               </div>
+              <FilterTagsBackground actionManager={actionManager} />
             </Island>
           </Section>
         </div>

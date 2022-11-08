@@ -91,6 +91,7 @@ export const SelectedShapeActions = ({
       {showChangeBackgroundIcons && (
         <div>{renderAction("changeBackgroundColor")}</div>
       )}
+      {renderAction("changeTags")}
       {showFillIcons && renderAction("changeFillStyle")}
 
       {(hasStrokeWidth(appState.activeTool.type) ||

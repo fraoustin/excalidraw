@@ -564,6 +564,9 @@ const ExcalidrawWrapper = () => {
             viewBackgroundColor: appState.exportBackground
               ? appState.viewBackgroundColor
               : getDefaultAppState().viewBackgroundColor,
+            tagsBackground: appState.exportBackground
+              ? appState.tagsBackground
+              : getDefaultAppState().tagsBackground,
           },
           files,
         );
