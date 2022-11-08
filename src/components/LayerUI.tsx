@@ -42,6 +42,7 @@ import { actionToggleStats } from "../actions/actionToggleStats";
 import Footer from "./Footer";
 import {
   ExportImageIcon,
+  saveAs,
   HamburgerMenuIcon,
   WelcomeScreenMenuArrow,
   WelcomeScreenTopToolbarArrow,
@@ -57,6 +58,7 @@ import WelcomeScreenDecor from "./WelcomeScreenDecor";
 import { getShortcutFromShortcutName } from "../actions/shortcuts";
 import MenuItem from "./MenuItem";
 import "./TagsCanvas.scss";
+import { actionSaveFileToDisk } from "../actions/actionExport";
 
 interface LayerUIProps {
   actionManager: ActionManager;
@@ -224,6 +226,16 @@ const LayerUI = ({
               {appState.fileHandle &&
                 actionManager.renderAction("saveToActiveFile")}
               {renderJSONExportDialog()}
+              {!appState.fileHandle && (
+                <MenuItem
+                  label={t("exportDialog.disk_button")}
+                  icon={saveAs}
+                  dataTestId="image-export-button"
+                  onClick={() => {
+                    actionManager.executeAction(actionSaveFileToDisk, "ui");
+                  }}
+                />
+              )}
               {UIOptions.canvasActions.saveAsImage && (
                 <MenuItem
                   label={t("buttons.exportImage")}
@@ -243,8 +255,6 @@ const LayerUI = ({
               {actionManager.renderAction("toggleShortcuts", undefined, true)}
               {!appState.viewModeEnabled &&
                 actionManager.renderAction("clearCanvas")}
-              <Separator />
-              <MenuLinks />
               <Separator />
               <div
                 style={{
