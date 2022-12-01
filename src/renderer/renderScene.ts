@@ -1095,14 +1095,21 @@ const isVisibleElement = (
   } else {
     tagsBack.toLowerCase().split(' ').forEach((eltTagsBack) => {
       if (eltTagsBack.length > 0){
-        if (element.tags.toLowerCase().split(' ').includes(eltTagsBack)) {
-          inTags = true;
-        }
+        if (element.tags != undefined) {
+          if (element.tags.toLowerCase().split(' ').includes(eltTagsBack)) {
+            inTags = true;
+          }
+	}  
       }
     })
-    if (element.tags.length === 0) {
-      inTags = true;
+    if ( element.tags === undefined) {
+    	inTags = true;
+    } else {
+      if (element.tags.length === 0) {
+        inTags = true;
+      }
     }
+
   }
 
   return (
